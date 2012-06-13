@@ -1,0 +1,22 @@
+// This is the master SASS style file for the application. All other SASS files
+// should be included from here. Override twitter bootstrap variables BEFORE
+// importing bootstrap.
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700)
+$sansFontFamily: 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+// The Twitter Bootstrap stylesheets from the bootstrap-sass gem.
+@import bootstrap
+//@import bootstrap-responsive
+
+// Variables to be used throughout the application
+
+// Page layout
+@import shared/layout
+@import shared/nav-menu
+
+// Global colors, fonts, new classes, etc.
+@import shared/global
+
+// Styles for each controller/view
+//@import posts

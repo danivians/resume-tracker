@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1'}
+    %meta{name: 'viewport', content: 'width=device-width,initial-scale=1'}
+    %title
+      = content_for?(:title) ? yield(:title) : (controller.controller_name + " : " + controller.action_name)
+      = "- Résumé Tracker"
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "html5shiv"
+
+  %body
+    /[if lt IE 7] <p class='chromeframe'>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> to experience this site.</p>
+
+    = render '/shared/navigation'
+
+    .page-body
+      .container
+        = render '/shared/flash_messages'
+        = yield
+
+    = render '/shared/footer'
+
+    = javascript_include_tag "application"

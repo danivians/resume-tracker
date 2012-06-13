@@ -34,4 +34,8 @@ ResumeTracker::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Use SASS instead of SCSS for stylesheet generators
+  config.sass.preferred_syntax = :sass
+
 end
