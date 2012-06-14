@@ -14,6 +14,8 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'friendly_id', '~> 4.0.1'
+#gem 'activeadmin'   # Implement in the future
 gem 'simple_form'
 gem 'kaminari'
 
@@ -29,7 +31,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.0'
   gem 'factory_girl_rails'
   gem 'forgery'
   gem 'simplecov'
