@@ -15,7 +15,14 @@ The application uses a very simple model structure, with minimal
 interaction between models.  Models are:
 
 * Candidate - tracks each candidate / résumé
-* Source - sometimes it is helpful to track where the résumé came from (HR, referral, headhunter, etc.)
-* User - an end-user of the application... usually a hiring manager
+* Source - sometimes it is helpful to track where the résumé came from
+  (HR, referral, headhunter, etc.)
+* Status - contains a primary and secondary status, such as "Rejected /
+  Wrong Skillset"
+* User - an end-user of the application; usually a hiring manager
 
+Development task list
+---------------------
+
+<https://www.pivotaltracker.com/projects/574143>
 
