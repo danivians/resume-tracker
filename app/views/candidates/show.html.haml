@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @candidate.name
+%p
+  %b Intake date:
+  = @candidate.intake_date
+%p
+  %b Followup date:
+  = @candidate.followup_date
+%p
+  %b Comments:
+  = @candidate.comments
+%p
+  %b User:
+  = @candidate.user
+%p
+  %b Source:
+  = @candidate.source
+%p
+  %b Status:
+  = @candidate.status
+
+= link_to 'Edit', edit_candidate_path(@candidate)
+\|
+= link_to 'Back', candidates_path

@@ -1,7 +1,10 @@
 ResumeTracker::Application.routes.draw do
 
   resources :users
+  resources :sources
+  resources :statuses
+  resources :candidates
 
-  root :to => 'users#index'
+  root :to => 'candidates#index'
 
 end

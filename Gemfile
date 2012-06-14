@@ -8,18 +8,16 @@ gem 'mysql2'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier',     '>= 1.0.3'
   gem 'bootstrap-sass', '2.0.3.1'
 end
 
 gem 'jquery-rails'
-gem 'haml'
+gem 'haml', '> 3.1.6'
 gem 'friendly_id', '~> 4.0.1'
+gem 'simple_form', '~> 2.0.2'
 #gem 'activeadmin'   # Implement in the future
-gem 'simple_form'
-gem 'kaminari'
 
-# Deploy with Capistrano
 gem 'capistrano'
 
 group :development do
@@ -38,7 +36,7 @@ group :development, :test do
   gem 'capybara'
 end
 
-group :test do
-  gem 'cucumber-rails'
-end
+#group :test do
+  #gem 'cucumber-rails'
+#end
 

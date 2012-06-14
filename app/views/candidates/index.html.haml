@@ -1,0 +1,31 @@
+%h1 Listing candidates
+
+%table
+  %tr
+    %th Name
+    %th Intake date
+    %th Followup date
+    %th Comments
+    %th User
+    %th Source
+    %th Status
+    %th
+    %th
+    %th
+
+  - @candidates.each do |candidate|
+    %tr
+      %td= candidate.name
+      %td= candidate.intake_date
+      %td= candidate.followup_date
+      %td= candidate.comments
+      %td= candidate.user
+      %td= candidate.source
+      %td= candidate.status
+      %td= link_to 'Show', candidate
+      %td= link_to 'Edit', edit_candidate_path(candidate)
+      %td= link_to 'Destroy', candidate, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Candidate', new_candidate_path
