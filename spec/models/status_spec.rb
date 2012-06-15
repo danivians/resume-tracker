@@ -6,22 +6,22 @@ describe Status do
     FactoryGirl.build(:status).should be_valid
   end
 
-  it 'is not valid if primary is missing'
-  it 'is not valid if primary is not unique'
+  it 'is not valid if main is missing'
+  it 'is not valid if main is not unique'
 
-  describe '.primaries' do
+  describe '.main_statuses' do
     before :each do
-      @s1 = FactoryGirl.create(:status, primary: 'one', secondary: 'two')
-      @s2 = FactoryGirl.create(:status, primary: 'three', secondary: 'four')
+      @s1 = FactoryGirl.create(:status, main: 'one', secondary: 'two')
+      @s2 = FactoryGirl.create(:status, main: 'three', secondary: 'four')
     end
-    it 'returns an Array of all the primary statuses' do
-      Status.primaries.should =~ ['one', 'three']
+    it 'returns an Array of all the main statuses' do
+      Status.main_statuses.should =~ ['one', 'three']
     end
   end
 
   describe '#full_status' do
-    before { @status = FactoryGirl.build(:status, primary: 'one', secondary: 'two') }
-    it 'returns a String containing the primary and secondary status' do
+    before { @status = FactoryGirl.build(:status, main: 'one', secondary: 'two') }
+    it 'returns a String containing the main and secondary status' do
       @status.full_status.should include('one')
       @status.full_status.should include('two')
     end

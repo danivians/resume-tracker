@@ -10,7 +10,7 @@
 
   - @statuses.each do |status|
     %tr
-      %td= status.primary
+      %td= status.main
       %td= status.secondary
       %td= link_to 'Show', status
       %td= link_to 'Edit', edit_status_path(status)

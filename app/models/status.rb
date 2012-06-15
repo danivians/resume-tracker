@@ -2,22 +2,21 @@ class Status < ActiveRecord::Base
 
   has_many :candidates
 
-  validates :primary, presence: true, uniqueness: true
+  validates :main, presence: true, uniqueness: true
   validates :secondary, presence: true
 
-  attr_accessible :primary, :secondary
+  attr_accessible :main, :secondary
 
-  # 'primary' is a reserved word in SQL, so it needs to be quoted
-  default_scope order: '`primary`, secondary'
+  default_scope order: 'main, secondary'
 
-  # Return an Array of all the primary statuses
-  def self.primaries
-    select('`primary`').uniq.map { |status| status.primary }
+  # Return an Array of all the main statuses
+  def self.main_statuses
+    select('main').uniq.map { |status| status.main }
   end
 
-  # Return a String containing the full (primary and secondary) status.
+  # Return a String containing the full (main and secondary) status.
   def full_status
-    "#{primary} - #{secondary}"
+    "#{main} - #{secondary}"
   end
 
 end

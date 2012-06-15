@@ -16,7 +16,10 @@ gem 'jquery-rails'
 gem 'haml', '>= 3.1.6'
 gem 'friendly_id', '~> 4.0.1'
 gem 'simple_form', '~> 2.0.2'
-#gem 'activeadmin'   # Implement in the future
+
+# User authentication gem
+gem 'comcast-ldap-connector'
+gem 'net-ldap'
 
 gem 'capistrano'
 

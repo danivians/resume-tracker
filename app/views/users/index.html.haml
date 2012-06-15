@@ -2,18 +2,27 @@
   %h1 Users
 
 %p
-  = link_to 'Add a new user', new_user_path
+  Users are usually the hiring managers and recruiters who are using the
+  Résumé Tracker. Résumés get assigned to Users for review, interview,
+  feedback, etc.
 
-%table.table.table-striped
+%p
+  = link_to 'Add a new user', new_user_path, class: 'btn btn-primary'
+
+%table.table.table-striped.margin-top
   %tr
     %th Full Name
     %th Login ID
+    %td Candidates
     %th
 
   - @users.each do |user|
     %tr
       %td= user.name
       %td= user.login
+      %td
+        = link_to user_candidates_url(user), class: 'padded_link' do
+          %span.padded-link= user.candidates.count
       %td
         = link_to 'Edit', edit_user_path(user)
         &middot;

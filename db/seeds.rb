@@ -8,4 +8,15 @@
 
 10.times do
   FactoryGirl.create(:user)
+  FactoryGirl.create(:source)
+  status = FactoryGirl.build(:status)
+  status.save if status && status.valid?
+end
+
+100.times do
+  candidate = FactoryGirl.build(:candidate)
+  candidate.user = User.all.sample if rand(5) > 0
+  candidate.source = Source.all.sample if rand(8) > 0
+  candidate.status = Status.all.sample if rand(8) > 0
+  candidate.save
 end

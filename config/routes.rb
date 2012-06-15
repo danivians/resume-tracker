@@ -1,6 +1,8 @@
 ResumeTracker::Application.routes.draw do
 
-  resources :users
+  resources :users do
+    resources :candidates, only: :index
+  end
   resources :sources
   resources :statuses
   resources :candidates
