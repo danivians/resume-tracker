@@ -1,21 +1,21 @@
-%h1 Listing users
+.page-header
+  %h1 Users
 
-%table
+%p
+  = link_to 'Add a new user', new_user_path
+
+%table.table.table-striped
   %tr
-    %th Name
-    %th Login
-    %th
-    %th
+    %th Full Name
+    %th Login ID
     %th
 
   - @users.each do |user|
     %tr
       %td= user.name
       %td= user.login
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to 'Edit', edit_user_path(user)
+        &middot;
+        = link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete
 
-%br
-
-= link_to 'New User', new_user_path

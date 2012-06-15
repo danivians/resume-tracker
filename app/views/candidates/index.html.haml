@@ -1,6 +1,9 @@
-%h1 Listing candidates
+.page-header
+  %h1 Candidates
 
-%table
+= link_to 'New Candidate', new_candidate_path
+
+%table.table.table-striped
   %tr
     %th Name
     %th Intake date
@@ -9,8 +12,6 @@
     %th User
     %th Source
     %th Status
-    %th
-    %th
     %th
 
   - @candidates.each do |candidate|
@@ -22,10 +23,10 @@
       %td= candidate.user
       %td= candidate.source
       %td= candidate.status
-      %td= link_to 'Show', candidate
-      %td= link_to 'Edit', edit_candidate_path(candidate)
-      %td= link_to 'Destroy', candidate, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to 'Show', candidate
+        &middot;
+        = link_to 'Edit', edit_candidate_path(candidate)
+        &middot;
+        = link_to 'Destroy', candidate, :confirm => 'Are you sure?', :method => :delete
 
-%br
-
-= link_to 'New Candidate', new_candidate_path

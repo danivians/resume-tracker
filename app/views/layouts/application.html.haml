@@ -15,11 +15,11 @@
 
     = render '/shared/navigation'
 
-    .page-body
-      .container
-        = render '/shared/flash_messages'
-        = yield
+    .container#main-content
+      = render '/shared/flash_messages'
+      = yield
 
-    = render '/shared/footer'
+    #footer
+      = render '/shared/footer'
 
     = javascript_include_tag "application"
