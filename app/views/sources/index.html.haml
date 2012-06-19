@@ -2,7 +2,7 @@
   %h1 Sources
 
 %p
-  Sources...
+  Something about sources...
 
 %p
   = link_to 'Add a new source', new_source_path, class: 'btn btn-primary'
@@ -18,5 +18,4 @@
       %td
         = link_to 'Edit', edit_source_path(source)
         &middot;
-        = link_to 'Delete', source, :confirm => 'Are you sure?', :method => :delete
-
+        = link_to 'Delete', source, confirm: 'Are you sure?', method: :delete

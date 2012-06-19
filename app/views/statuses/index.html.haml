@@ -1,21 +1,23 @@
-%h1 Listing statuses
+.page-header
+  %h1 Statuses
 
-%table
+%p
+  Something about statuses...
+
+%p
+  = link_to 'Add a new status', new_status_path, class: 'btn btn-primary'
+
+%table.table.table-striped.margin-top
   %tr
-    %th Primary
-    %th Secondary
-    %th
-    %th
+    %th Main Status
+    %th Secondary Status
     %th
 
   - @statuses.each do |status|
     %tr
       %td= status.main
       %td= status.secondary
-      %td= link_to 'Show', status
-      %td= link_to 'Edit', edit_status_path(status)
-      %td= link_to 'Destroy', status, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Status', new_status_path
+      %td
+        = link_to 'Edit', edit_status_path(status)
+        &middot;
+        = link_to 'Destroy', status, confirm: 'Are you sure?', method: :delete
