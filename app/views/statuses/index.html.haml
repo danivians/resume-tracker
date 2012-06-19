@@ -7,6 +7,25 @@
 %p
   = link_to 'Add a new status', new_status_path, class: 'btn btn-primary'
 
+%h2
+  Main statuses
+
+%table.table.table-striped.margin-top
+  %tr
+    %th Main Status
+    %th Candidates
+    %th
+
+  - Status.main_statuses.each do |main_status|
+    %tr
+      %td= main_status
+      %td
+        = link_to candidates_url(main_status: main_status), class: 'padded_link' do
+          %span.padded-link= Status.where(main: main_status).count
+
+%h2
+  Full statuses
+
 %table.table.table-striped.margin-top
   %tr
     %th Main Status
@@ -20,4 +39,4 @@
       %td
         = link_to 'Edit', edit_status_path(status)
         &middot;
-        = link_to 'Destroy', status, confirm: 'Are you sure?', method: :delete
+        = link_to 'Delete', status, data: { confirm: 'Are you sure?' }, :method => :delete

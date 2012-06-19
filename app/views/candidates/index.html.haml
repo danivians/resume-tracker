@@ -1,32 +1,32 @@
 .page-header
   %h1 Candidates
 
-= link_to 'New Candidate', new_candidate_path
+%p
+  Something about candidates
+
+%p
+  = link_to 'New Candidate', new_candidate_path, class: 'btn btn-primary'
 
 %table.table.table-striped
   %tr
     %th Name
-    %th Intake date
-    %th Followup date
-    %th Comments
-    %th User
-    %th Source
+    %th Intake
     %th Status
+    %th Assignee
+    %th Followup
     %th
 
   - @candidates.each do |candidate|
     %tr
       %td= candidate.name
       %td= candidate.intake_date
+      %td= candidate.status ? candidate.status.full_status : 'unknown'
+      %td= candidate.user ? candidate.user.name : 'unassigned'
       %td= candidate.followup_date
-      %td= candidate.comments
-      %td= candidate.user
-      %td= candidate.source
-      %td= candidate.status
       %td
         = link_to 'Show', candidate
         &middot;
         = link_to 'Edit', edit_candidate_path(candidate)
         &middot;
-        = link_to 'Destroy', candidate, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Delete', candidate, data: { confirm: 'Are you sure?' }, :method => :delete
 

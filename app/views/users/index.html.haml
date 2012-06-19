@@ -21,10 +21,10 @@
       %td= user.name
       %td= user.login
       %td
-        = link_to user_candidates_url(user), class: 'padded_link' do
+        = link_to candidates_url(user: user.to_param), class: 'padded_link' do
           %span.padded-link= user.candidates.count
       %td
         = link_to 'Edit', edit_user_path(user)
         &middot;
-        = link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Delete', user, data: { confirm: 'Are you sure?' }, :method => :delete
 

@@ -1,35 +1,21 @@
 class CandidatesController < ApplicationController
-  # GET /candidates
-  # GET /candidates.json
-  def index
-    @candidates = Candidate.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @candidates }
+  def index
+    if params[:main_status]
+      @candidates = Candidate.includes(:status, :user).delete_if { |c| c.status.nil? || c.status.main != params[:main_status] }
+    elsif params[:user]
+      @candidates = Candidate.where(user_id: User.find(params[:user]).id).includes(:status, :user)
+    else
+      @candidates = Candidate.includes(:status, :user)
     end
   end
 
-  # GET /candidates/1
-  # GET /candidates/1.json
   def show
     @candidate = Candidate.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @candidate }
-    end
   end
 
-  # GET /candidates/new
-  # GET /candidates/new.json
   def new
     @candidate = Candidate.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @candidate }
-    end
   end
 
   # GET /candidates/1/edit

@@ -18,4 +18,4 @@
       %td
         = link_to 'Edit', edit_source_path(source)
         &middot;
-        = link_to 'Delete', source, confirm: 'Are you sure?', method: :delete
+        = link_to 'Delete', source, data: { confirm: 'Are you sure?' }, :method => :delete

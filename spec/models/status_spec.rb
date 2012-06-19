@@ -27,4 +27,25 @@ describe Status do
     end
   end
 
+  describe '#destroy' do
+    before { @status = FactoryGirl.create(:status) }
+
+    context 'when no candidates are assigned to the status' do
+      it 'destroys the record' do
+        expect { @status.destroy }.to change { Status.count }.by(-1)
+      end
+    end
+
+    context 'when a candidate is still assigned to the status' do
+      before { @candidate = FactoryGirl.create(:candidate, status: @status) }
+
+      it 'does not destroy the record' do
+        expect { @status.destroy }.to change { Status.count }.by(0)
+      end
+
+      it 'raises an Exception' do
+        expect { @status.destroy }.to raise_error
+      end
+    end
+  end
 end
